@@ -15,5 +15,4 @@ if "Empty Fields error is showing" in error:
     print("Test 03: User cannot Log In with empty fields")
 else:
     print("Test 03 Failed")
-input("Please press Enter to close the browser...")
 driver.quit()

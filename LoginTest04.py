@@ -48,14 +48,12 @@ time.sleep(2)
 driver.find_element(By.ID, "logout_sidebar_link").click()
 time.sleep(3)
 check("Test 03 logout", driver.find_element(By.ID, "login-button").is_displayed)
+
 # Test 4: locked out user
 driver = webdriver.Chrome(options=options)
 driver.maximize_window()
-
 login("locked_out_user", "secret_sauce")
 time.sleep(2)
-
 error = driver.find_element(By.CSS_SELECTOR, "[data-test='error']").text
 check("Test 4: locked out user", "locked out user" in error.lower())
-
 print("\nAll tests completed!")
