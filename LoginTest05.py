@@ -1,3 +1,4 @@
+#DAY 05
 import time 
 import pytest
 from selenium import webdriver
@@ -12,6 +13,7 @@ def driver():
     time.sleep(3)
     driver.quit()
 
+#Test 01: Login with Valid Credentials
 def login(driver, username, password):
     time.sleep(3)
     driver.find_element(By.ID, "user-name").send_keys(username)
@@ -25,11 +27,13 @@ def test_valid_login(driver):
     login(driver, "standard_user", "secret_sauce")
     assert "inventory" in driver.current_url
 
+#Test 02: Login with Wrong Password
 def test_wrong_password(driver):
     login(driver, "standard_user", "wrong_password")
     error = driver.find_element(By.CSS_SELECTOR, "[data-test='error']").text
     assert "do not match" in error
 
+#Test 03: Login with Empty Fields
 def test_empty_fields(driver):
     login(driver, "", "")
     error = driver.find_element(By.CSS_SELECTOR, "[data-test='error']").text
