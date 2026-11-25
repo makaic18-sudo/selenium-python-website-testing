@@ -13,13 +13,10 @@ def driver():
     time.sleep(2)
     driver.quit()
 
-
 def login(driver, username, password):
     driver.find_element(By.ID, "user-name").send_keys(username)
     driver.find_element(By.ID, "password").send_keys(password)
     driver.find_element(By.ID, "login-button").click()
-
-
 
 def test_valid_login(driver):
     login(driver, "standard_user", "secret_sauce")
