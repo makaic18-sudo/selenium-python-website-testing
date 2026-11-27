@@ -1,3 +1,4 @@
+#DAY 01
 #Test 01: Login with Valid Username and Password
 import time
 from selenium import webdriver
